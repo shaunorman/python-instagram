@@ -41,6 +41,8 @@ class Media(ApiModel):
     def object_from_dictionary(cls, entry):
         new_media = Media(id=entry['id'])
 
+	new_media.type = entry['type']
+
         new_media.user = User.object_from_dictionary(entry['user'])
         new_media.images = {}
         for version, version_info in entry['images'].iteritems():
